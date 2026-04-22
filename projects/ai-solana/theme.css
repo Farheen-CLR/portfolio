@@ -1,0 +1,410 @@
+/* Theme Variables and Styles */
+:root {
+    /* Dark Theme (Default) */
+    --bg-primary: #0F1419;
+    --bg-secondary: #1A1B26;
+    --bg-card: rgba(26, 27, 38, 0.8);
+    --bg-card-hover: rgba(42, 43, 56, 0.9);
+    --bg-input: #2A2B38;
+    
+    --text-primary: #ffffff;
+    --text-secondary: #B8BCC8;
+    --text-muted: #888888;
+    
+    --border-primary: rgba(255, 255, 255, 0.1);
+    --border-secondary: #2A2B38;
+    
+    --accent-green: #14F195;
+    --accent-purple: #9945FF;
+    --accent-red: #FF4444;
+    --accent-yellow: #FFD93D;
+    
+    --grid-color: rgba(255, 255, 255, 0.1);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Light Theme */
+[data-theme="light"] {
+    --bg-primary: #F5F7FA;
+    --bg-secondary: #FFFFFF;
+    --bg-card: rgba(255, 255, 255, 0.95);
+    --bg-card-hover: rgba(248, 249, 250, 1);
+    --bg-input: #F0F2F5;
+    
+    --text-primary: #1A1B26;
+    --text-secondary: #4A5568;
+    --text-muted: #718096;
+    
+    --border-primary: rgba(0, 0, 0, 0.1);
+    --border-secondary: #E2E8F0;
+    
+    --accent-green: #00C896;
+    --accent-purple: #7C3AED;
+    --accent-red: #EF4444;
+    --accent-yellow: #F59E0B;
+    
+    --grid-color: rgba(0, 0, 0, 0.1);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Apply theme colors to body and main elements */
+body {
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    color: var(--text-primary);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Header Styles */
+.header-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.header-top h1 {
+    margin: 0;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: absolute;
+    right: 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.5em;
+}
+
+.theme-toggle:hover {
+    background: var(--bg-card-hover);
+    transform: rotate(20deg);
+    border-color: var(--accent-green);
+}
+
+.theme-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+/* Update existing elements with theme variables */
+.connection-status {
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+}
+
+.nav-btn {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-primary);
+}
+
+.nav-btn:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--accent-green);
+}
+
+.nav-btn.active {
+    background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-purple) 100%);
+    color: #000;
+}
+
+/* Cards and Containers */
+.chart-container,
+.price-chart-container,
+.chart-section,
+.analysis-card,
+.token-card,
+.signal-card,
+.trending-item,
+.stat-card {
+    background: var(--bg-card);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-primary);
+}
+
+.chart-container h2,
+.chart-section h3,
+.analysis-card h3 {
+    color: var(--accent-green);
+}
+
+/* Token Cards */
+.token-card {
+    background: var(--bg-card);
+}
+
+.token-card:hover {
+    border-color: var(--accent-green);
+}
+
+/* Inputs and Selects */
+.token-select,
+#tokenSelect,
+select,
+input {
+    background: var(--bg-input);
+    color: var(--text-primary);
+    border: 1px solid var(--border-secondary);
+}
+
+.token-select option,
+#tokenSelect option {
+    background: var(--bg-input);
+}
+
+/* Stats */
+.stat-label {
+    color: var(--text-muted);
+}
+
+.stat-value {
+    color: var(--accent-green);
+}
+
+/* Text Colors */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary);
+}
+
+h1 {
+    background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-purple) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+p {
+    color: var(--text-secondary);
+}
+
+.tagline, .subtitle {
+    color: var(--text-muted);
+}
+
+/* Footer */
+footer {
+    border-top: 1px solid var(--border-primary);
+}
+
+footer p {
+    color: var(--text-muted);
+}
+
+/* Loading States */
+.loading {
+    color: var(--text-muted);
+}
+
+/* Error and Success */
+.error {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: var(--accent-red);
+}
+
+.success {
+    background: rgba(20, 241, 149, 0.1);
+    border: 1px solid rgba(20, 241, 149, 0.3);
+    color: var(--accent-green);
+}
+
+/* Analysis Cards */
+.sentiment-indicator.bullish {
+    background: rgba(20, 241, 149, 0.2);
+    color: var(--accent-green);
+}
+
+.sentiment-indicator.bearish {
+    background: rgba(255, 68, 68, 0.2);
+    color: var(--accent-red);
+}
+
+.sentiment-indicator.neutral {
+    background: rgba(255, 217, 61, 0.2);
+    color: var(--accent-yellow);
+}
+
+/* Predictions */
+.prediction-card {
+    background: var(--bg-card);
+}
+
+.pred-label {
+    color: var(--text-muted);
+}
+
+.pred-value {
+    color: var(--accent-green);
+}
+
+/* Risk Items */
+.risk-item {
+    background: var(--bg-card);
+}
+
+.risk-label {
+    color: var(--text-muted);
+}
+
+.risk-value {
+    color: var(--accent-green);
+}
+
+/* Pattern Items */
+.pattern-item {
+    background: var(--bg-card);
+    border-left: 3px solid var(--accent-purple);
+}
+
+.pattern-type {
+    color: var(--accent-green);
+}
+
+.pattern-description {
+    color: var(--text-secondary);
+}
+
+.pattern-action {
+    color: var(--accent-yellow);
+}
+
+/* Signal Cards */
+.signal-card {
+    background: var(--bg-card);
+}
+
+.signal-card.buy {
+    border-color: var(--accent-green);
+}
+
+.signal-card.sell {
+    border-color: var(--accent-red);
+}
+
+.signal-card.hold {
+    border-color: var(--accent-yellow);
+}
+
+.signal-badge.buy {
+    background: var(--accent-green);
+    color: #000;
+}
+
+.signal-badge.sell {
+    background: var(--accent-red);
+    color: #fff;
+}
+
+.signal-badge.hold {
+    background: var(--accent-yellow);
+    color: #000;
+}
+
+.signal-reasons {
+    color: var(--text-secondary);
+}
+
+.signal-time {
+    color: var(--text-muted);
+}
+
+/* Trending Items */
+.trending-item {
+    background: var(--bg-card);
+}
+
+.trending-item:hover {
+    border-color: var(--accent-green);
+}
+
+.trending-rank {
+    color: var(--accent-purple);
+}
+
+.trending-info h4 {
+    color: var(--accent-green);
+}
+
+.trending-info p {
+    color: var(--text-muted);
+}
+
+/* Buttons */
+.analyze-btn,
+.refresh-btn {
+    background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-purple) 100%);
+    color: #000;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.refresh-btn:hover:not(:disabled) {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(20, 241, 149, 0.4);
+}
+
+.refresh-btn:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+.refresh-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Rotating animation for refresh icon */
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.refresh-btn:disabled .emoji-rotate {
+    display: inline-block;
+    animation: rotate 1s linear infinite;
+}
+
+/* Insights */
+.insights-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+}
+
+.insight-item {
+    background: var(--bg-card);
+    border-left: 3px solid var(--accent-green);
+}
+
+/* Market Overview specific */
+.market-overview {
+    color: var(--text-primary);
+}
+
+/* Light theme specific adjustments */
+[data-theme="light"] .nav-btn.active {
+    color: #fff;
+}
+
+[data-theme="light"] .signal-badge.buy,
+[data-theme="light"] .signal-badge.hold {
+    color: #fff;
+}
+
+[data-theme="light"] .analyze-btn,
+[data-theme="light"] .refresh-btn {
+    color: #fff;
+}
+
+/* Smooth transitions for all themed elements */
+* {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}

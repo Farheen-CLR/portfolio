@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-Powered Market Analysis for Solana &amp; Pump.fun — Farheen Ali</title>
+<meta name="description" content="Live demo of AI-Powered Market Analysis for Solana & Pump.fun cryptocurrencies by Farheen Ali.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0b1020 0%, #1a1f3a 100%);
+    color: #e6e9f5; min-height: 100vh; line-height: 1.6;
+  }
+  a { color: #22d3ee; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 30px 24px; }
+  .back-link { display: inline-block; margin-bottom: 30px; color: #a3acc7; font-size: 14px; }
+  .hero { text-align: center; padding: 40px 0 50px; border-bottom: 1px solid #232b4a; }
+  .hero .emoji { font-size: 80px; margin-bottom: 20px; }
+  .hero h1 {
+    font-size: clamp(28px, 4vw, 42px); font-weight: 800; margin-bottom: 16px;
+    background: linear-gradient(135deg, #6366f1 0%, #22d3ee 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero .tagline { font-size: 18px; color: #a3acc7; max-width: 700px; margin: 0 auto; }
+  .badges { margin-top: 20px; display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; }
+  .badge {
+    background: rgba(34,211,238,0.1); border: 1px solid rgba(34,211,238,0.3);
+    color: #22d3ee; padding: 4px 12px; border-radius: 100px;
+    font-size: 12px; font-family: 'JetBrains Mono', monospace;
+  }
+  .cta-row { margin-top: 30px; display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 12px 26px; border-radius: 10px; font-weight: 600; font-size: 15px; transition: transform 0.2s; }
+  .btn-primary { background: linear-gradient(135deg, #6366f1 0%, #22d3ee 100%); color: #fff !important; }
+  .btn-ghost { border: 1.5px solid #232b4a; color: #e6e9f5 !important; }
+  .btn:hover { transform: translateY(-2px); }
+  section { padding: 40px 0; border-bottom: 1px solid #232b4a; }
+  section h2 { font-size: 28px; margin-bottom: 20px; font-weight: 700; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 720px) { .grid-2 { grid-template-columns: 1fr; } }
+  .card { background: #161d36; border: 1px solid #232b4a; border-radius: 14px; padding: 26px 24px; }
+  .card h3 { font-size: 20px; margin-bottom: 12px; color: #fff; }
+  .card p { color: #a3acc7; font-size: 15px; margin-bottom: 10px; }
+  .card ul { margin-left: 20px; }
+  .card li { color: #a3acc7; padding: 4px 0; font-size: 15px; }
+  .metric { background: #11172e; border: 1px solid #232b4a; border-radius: 12px; padding: 24px; text-align: center; }
+  .metric-value {
+    font-size: 28px; font-weight: 800; margin-bottom: 6px;
+    background: linear-gradient(135deg, #6366f1 0%, #22d3ee 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .metric-label { color: #a3acc7; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+  .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-top: 20px; }
+  .mock-prediction {
+    background: #0b1020; border: 1px solid #232b4a; border-radius: 12px;
+    padding: 20px; margin-top: 20px; font-family: 'JetBrains Mono', monospace;
+    font-size: 13px; color: #a3acc7; overflow-x: auto;
+  }
+  .mock-prediction .green { color: #22d3ee; }
+  .mock-prediction .yellow { color: #fcb045; }
+  .mock-prediction .muted { color: #6b7280; }
+  .stack-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+  .stack-row span {
+    background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3);
+    color: #e6e9f5; padding: 6px 14px; border-radius: 100px;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  }
+  footer { text-align: center; padding: 30px 0; color: #a3acc7; font-size: 14px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <a href="../../" class="back-link">← Back to Portfolio</a>
+
+  <div class="hero">
+    <div class="emoji">📈</div>
+    <h1>AI-Powered Market Analysis<br>for Solana &amp; Pump.fun Coins</h1>
+    <p class="tagline">
+      Real-time machine learning model that predicts cryptocurrency price trends, analyses trading volumes, and identifies profitable opportunities across Solana and Pump.fun tokens.
+    </p>
+    <div class="badges">
+      <span class="badge">Python</span>
+      <span class="badge">TensorFlow</span>
+      <span class="badge">Solana API</span>
+      <span class="badge">AWS</span>
+      <span class="badge">Node.js</span>
+      <span class="badge">Machine Learning</span>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://gitlab.com/Farheen-cell/my-ai-projects" target="_blank" rel="noopener">View Source Code →</a>
+      <a class="btn btn-ghost" href="../../" target="_self">Back to Portfolio</a>
+    </div>
+  </div>
+
+  <section>
+    <h2>🎯 Project Overview</h2>
+    <p style="color:#a3acc7; font-size: 16px; max-width: 900px;">
+      Built an end-to-end AI pipeline that ingests live cryptocurrency market data from multiple Solana-based exchanges and the Pump.fun launchpad, applies machine learning models for price prediction and volume analysis, and automates alerting for profitable trading opportunities. The system was designed to support informed retail investment decisions with real-time signals.
+    </p>
+  </section>
+
+  <section>
+    <h2>⚡ Key Features</h2>
+    <div class="grid-2">
+      <div class="card"><h3>📊 Real-Time Price Prediction</h3><p>ML-powered forecasting of Solana and Pump.fun token prices using historical patterns, volume signals, and market momentum indicators.</p></div>
+      <div class="card"><h3>🔗 Multi-Exchange Integration</h3><p>Aggregates order-book and trade data from several crypto exchanges and news feeds to enhance prediction accuracy and reduce single-source bias.</p></div>
+      <div class="card"><h3>🚨 Automated Alert System</h3><p>Triggers real-time notifications when model confidence crosses profit thresholds — supports actionable investment decisions without manual chart-watching.</p></div>
+      <div class="card"><h3>📈 Volume &amp; Trend Analysis</h3><p>Classifies trading volume regimes (accumulation, distribution, breakout) and overlays them with predicted price paths to surface high-probability setups.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>📐 System Capabilities</h2>
+    <div class="metrics-grid">
+      <div class="metric"><div class="metric-value">Real-Time</div><div class="metric-label">Inference</div></div>
+      <div class="metric"><div class="metric-value">Multi-Source</div><div class="metric-label">Data Ingest</div></div>
+      <div class="metric"><div class="metric-value">Automated</div><div class="metric-label">Alerts</div></div>
+      <div class="metric"><div class="metric-value">Cloud</div><div class="metric-label">Deployment</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>💻 Sample Model Output</h2>
+    <p style="color:#a3acc7;">Example prediction payload from the inference API:</p>
+    <div class="mock-prediction"><pre><span class="muted"># GET /api/predict?symbol=SOL&amp;horizon=1h</span>
+{
+  <span class="green">"symbol"</span>: <span class="yellow">"SOL/USD"</span>,
+  <span class="green">"timestamp"</span>: <span class="yellow">"2026-04-22T10:15:00Z"</span>,
+  <span class="green">"current_price"</span>: 172.48,
+  <span class="green">"prediction_horizon"</span>: <span class="yellow">"1h"</span>,
+  <span class="green">"predicted_price"</span>: 174.91,
+  <span class="green">"expected_change_pct"</span>: +1.41,
+  <span class="green">"confidence"</span>: 0.82,
+  <span class="green">"volume_regime"</span>: <span class="yellow">"accumulation"</span>,
+  <span class="green">"signal"</span>: <span class="yellow">"BUY"</span>,
+  <span class="green">"sources"</span>: [<span class="yellow">"binance"</span>, <span class="yellow">"coinbase"</span>, <span class="yellow">"pumpfun"</span>, <span class="yellow">"news_sentiment"</span>]
+}</pre></div>
+  </section>
+
+  <section>
+    <h2>🏗️ Architecture &amp; Stack</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Backend &amp; ML</h3>
+        <p>Python ML pipeline training models on aggregated historical + streaming crypto data. TensorFlow for prediction models, Node.js orchestration.</p>
+        <div class="stack-row"><span>Python</span><span>TensorFlow</span><span>Pandas</span><span>Node.js</span></div>
+      </div>
+      <div class="card">
+        <h3>Data Sources</h3>
+        <p>Integrates with Solana JSON-RPC, Pump.fun APIs, and centralized-exchange REST endpoints for multi-venue market data.</p>
+        <div class="stack-row"><span>Solana API</span><span>Pump.fun</span><span>Exchange REST</span><span>News Feeds</span></div>
+      </div>
+      <div class="card">
+        <h3>Deployment</h3>
+        <p>Containerized deployment on cloud infrastructure with scalable inference endpoints and scheduled retraining jobs.</p>
+        <div class="stack-row"><span>AWS</span><span>Render</span><span>Docker</span><span>CI/CD</span></div>
+      </div>
+      <div class="card">
+        <h3>Frontend Dashboard</h3>
+        <p>Interactive dashboard for visualising predictions, historical performance, and alerts, built with Chart.js and vanilla JS.</p>
+        <div class="stack-row"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Chart.js</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🛣️ Roadmap &amp; Future Enhancements</h2>
+    <div class="card">
+      <ul>
+        <li>🔒 On-chain wallet integration for automated trade execution (Solana Web3.js)</li>
+        <li>🧠 Transformer-based sentiment analysis on crypto Twitter and news articles</li>
+        <li>📱 Mobile push notifications for alerts (iOS / Android via FCM)</li>
+        <li>📊 Back-testing framework with PnL simulation across historical periods</li>
+        <li>🧪 Reinforcement-learning trading agent for auto-rebalancing strategies</li>
+      </ul>
+    </div>
+  </section>
+
+  <section style="text-align: center; border-bottom: none;">
+    <h2>Interested in the code?</h2>
+    <p style="color:#a3acc7; margin-bottom: 18px;">Full source, ML training scripts, and dashboard frontend are on GitLab.</p>
+    <a class="btn btn-primary" href="https://gitlab.com/Farheen-cell/my-ai-projects" target="_blank" rel="noopener">View Source on GitLab →</a>
+  </section>
+
+  <footer>
+    Built by <a href="https://github.com/Farheen-CLR">Farheen Ali</a> · <a href="../../">Back to Portfolio</a>
+  </footer>
+
+</div>
+</body>
+</html>
