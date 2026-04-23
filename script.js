@@ -1,6 +1,24 @@
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// Resume: open in new tab + trigger download (both behaviors)
+document.querySelectorAll('a[data-resume]').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const href = this.getAttribute('href');
+    // 1. Open the PDF in a new tab
+    window.open(href, '_blank', 'noopener');
+    // 2. Also trigger a direct download
+    const dl = document.createElement('a');
+    dl.href = href;
+    dl.download = href.split('/').pop();
+    dl.style.display = 'none';
+    document.body.appendChild(dl);
+    dl.click();
+    document.body.removeChild(dl);
+  });
+});
+
 // Mobile nav toggle
 const toggle = document.querySelector('.nav-toggle');
 const links = document.querySelector('.nav-links');
